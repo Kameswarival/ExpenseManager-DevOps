@@ -95,6 +95,12 @@ pipeline {
             }
         }
 	
+	  stage('Background process done') {
+            steps {
+				echo "Done"
+            }
+        }
+
 		
 		/*
 		stage('System Test') {
