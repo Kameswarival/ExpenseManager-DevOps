@@ -97,18 +97,18 @@ pipeline {
 	
 	  stage('Background process done') {
             steps {
-				echo "Done"
+				echo "Deployment on Tomcat WebServer Done"
             }
         }
 
 		
-		/*
+		
 		stage('System Test') {
             steps {
                 sh 'mvn -Dtest=SystemTest1_Title.java'
             }
         }
-		*/
+		
 		
     }
 }
