@@ -1,0 +1,33 @@
+pipeline {
+    agent {
+        docker {
+             image 'maven:3-alpine'
+            args '-v /root/.m2:/root/.m2 -p 9191:8089'
+        }//end of docker
+}//end of agent
+    stages {
+
+      //Run PMD - The static code Analysis tool
+          stage('PMD') {
+                  steps {
+                      sh 'mvn site'
+                  }
+              }
+      //End of PMD code
+
+
+      //Run Unit Test cases
+              stage('UnitTest') {
+                  steps {
+                      sh 'mvn test'
+                  }
+                  post {
+                      always {
+                          junit 'target/surefire-reports/*.xml'
+                      }
+                  }
+              }//End of Unit Test cases
+
+}//end of stages
+
+}//end of pipeline

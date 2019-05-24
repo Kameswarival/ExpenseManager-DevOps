@@ -16,6 +16,18 @@ pipeline {
       //End of PMD code
 
 
+      //Run Unit Test cases
+              stage('UnitTest') {
+                  steps {
+                      sh 'mvn test'
+                  }
+                  post {
+                      always {
+                          junit 'target/surefire-reports/*.xml'
+                      }
+                  }
+              }//End of Unit Test cases
+
 }//end of stages
 
 }//end of pipeline
@@ -23,36 +35,20 @@ pipeline {
 
 /*
 
-//Run PMD - The static code Analysis tool
-    stage('PMD') {
-            steps {
-                sh 'mvn site'
-            }
-        }
-//End of PMD code
 
 
 
 
 
-//Run Unit Test cases
-        stage('UnitTest') {
-            steps {
-                sh 'mvn test'
-            }
-            post {
-                always {
-                    junit 'target/surefire-reports/*.xml'
-                }
-            }
-        }
+
+
 
 //Run Jacoco - Code Coverage
 		stage('Jacoco') {
             steps {
                 sh 'mvn jacoco:report'
             }
-        }
+        }//End of jacoco
 
 
 
@@ -61,7 +57,7 @@ pipeline {
             steps {
                 sh 'mvn install -DskipTests'
             }
-        }
+        }//End of Generate War File
 
 //Run SonarCube - Static Analysis
 		stage('Static Code Analysis') {
@@ -74,7 +70,8 @@ pipeline {
 				sh "${scannerHome}/bin/sonar-scanner"
 				}
 			}
-		}
+		}//end of Sonar SonarCube
+
 
 
 //Run Artifactory
@@ -85,14 +82,15 @@ pipeline {
 				server.publishBuildInfo buildInfo
 				])
 			}
-        }
+        }//End of Artifactory
 
-//Deplor war on Tomcat
+
+//Deploy war on Tomcat
 	  stage('War deploy on Tomcat server') {
             steps {
 				sh './jenkins/scripts/deliver.sh'
             }
-        }
+        }//End of Deploy war on Tomcat
 
 
 //Run System Test cases
@@ -100,5 +98,5 @@ pipeline {
             steps {
                 sh 'mvn -Dtest=SystemTest1_Title.java'
             }
-        }
+        }//End of System Test cases
     */
