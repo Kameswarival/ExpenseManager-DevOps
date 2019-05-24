@@ -19,7 +19,7 @@ pipeline {
       //Stage for Code Compilation - Dependency for SonarQube
 stage('Compile') {
             steps {
-
+                sh 'mvn compile'
             }
         }
 //End of Code Comp stage
