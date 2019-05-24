@@ -33,7 +33,20 @@ pipeline {
                           steps {
                               sh 'mvn install -DskipTests'
                           }
-                      }//End of Generate War File              
+                      }//End of Generate War File
+
+                      //Run SonarCube - Static Analysis
+                      		stage('Static Code Analysis') {
+                                  steps {
+                      			 script {
+                                scannerHome = tool 'sonar-scanner'
+                              }
+                      				withSonarQubeEnv('My SonarQube Server')
+                      				{
+                      				sh "${scannerHome}/bin/sonar-scanner"
+                      				}
+                      			}
+                      		}//end of Sonar SonarCube
 
 }//end of stages
 
@@ -61,18 +74,7 @@ pipeline {
 
 
 
-//Run SonarCube - Static Analysis
-		stage('Static Code Analysis') {
-            steps {
-			 script {
-          scannerHome = tool 'sonar-scanner'
-        }
-				withSonarQubeEnv('My SonarQube Server')
-				{
-				sh "${scannerHome}/bin/sonar-scanner"
-				}
-			}
-		}//end of Sonar SonarCube
+
 
 
 
