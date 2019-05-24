@@ -1,0 +1,6 @@
+//Generate warfile
+    stage('Build') {
+            steps {
+                sh 'mvn install -DskipTests'
+            }
+        }//End of Generate War File

@@ -28,6 +28,13 @@ pipeline {
                   }
               }//End of Unit Test cases
 
+              //Generate warfile
+                  stage('Build') {
+                          steps {
+                              sh 'mvn install -DskipTests'
+                          }
+                      }//End of Generate War File              
+
 }//end of stages
 
 }//end of pipeline
@@ -52,12 +59,7 @@ pipeline {
 
 
 
-//Generate warfile
-		stage('Build') {
-            steps {
-                sh 'mvn install -DskipTests'
-            }
-        }//End of Generate War File
+
 
 //Run SonarCube - Static Analysis
 		stage('Static Code Analysis') {
