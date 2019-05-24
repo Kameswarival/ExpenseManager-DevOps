@@ -15,14 +15,13 @@ pipeline {
         }
 		*/
 		
-/*			
+
 		stage('PMD') {
             steps {
                 sh 'mvn site'
             }
         }
 	
-*/	
 		
         stage('UnitTest') {
             steps {
@@ -34,6 +33,8 @@ pipeline {
                 }
             }
         }
+
+/*
 		
 				stage('Jacoco Code Coverage') {
 			steps {
@@ -45,7 +46,9 @@ pipeline {
 					])
 				}
 		}	
-		/*
+*/
+
+
 		
 		
 		stage('Jacoco') {
@@ -53,7 +56,7 @@ pipeline {
                 sh 'mvn jacoco:report'
             }
         }
-	*/	
+
 			
 			
 			
@@ -76,6 +79,7 @@ pipeline {
 			}
 		}
 */
+
 		
 		/*
 		stage('Artifactory') {
@@ -102,13 +106,14 @@ pipeline {
         }
 
 		
-		
+/*		
 		stage('System Test') {
             steps {
                 sh 'mvn -Dtest=SystemTest1_Title.java'
             }
         }
-		
+*/		
 		
     }
+
 }
