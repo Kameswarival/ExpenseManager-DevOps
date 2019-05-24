@@ -14,6 +14,7 @@ pipeline {
                     sh 'mvn site'
                 }
             }
+    //End of PMD code
 
           }
       }
