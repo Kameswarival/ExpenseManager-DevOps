@@ -3,25 +3,29 @@ pipeline {
         docker {
              image 'maven:3-alpine'
             args '-v /root/.m2:/root/.m2 -p 9191:8089'
-        }
-
+        }//end of docker
+}//end of agent
     stages {
+      //Run PMD - The static code Analysis tool
+          stage('PMD') {
+                  steps {
+                      sh 'mvn site'
+                  }
+              }
+      //End of PMD code
 
+}//end of stages
 
-    //Run PMD - The static code Analysis tool
-    		stage('PMD') {
-                steps {
-                    sh 'mvn site'
-                }
-            }
-    //End of PMD code
-
-          }
-      }
-      }
+}//end of pipeline
 
 
 /*
+
+
+
+
+
+
 
 //Run Unit Test cases
         stage('UnitTest') {
