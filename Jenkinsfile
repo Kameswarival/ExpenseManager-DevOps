@@ -78,6 +78,6 @@ pipeline {
                 sh 'mvn -Dtest=SystemTest1_Title.java'
             }
         }
-    }
     */
+    }
 }
