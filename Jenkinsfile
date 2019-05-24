@@ -6,6 +6,7 @@ pipeline {
         }//end of docker
 }//end of agent
     stages {
+
       //Run PMD - The static code Analysis tool
           stage('PMD') {
                   steps {
@@ -14,6 +15,7 @@ pipeline {
               }
       //End of PMD code
 
+
 }//end of stages
 
 }//end of pipeline
@@ -21,7 +23,13 @@ pipeline {
 
 /*
 
-
+//Run PMD - The static code Analysis tool
+    stage('PMD') {
+            steps {
+                sh 'mvn site'
+            }
+        }
+//End of PMD code
 
 
 
