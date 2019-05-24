@@ -34,8 +34,7 @@ pipeline {
             }
         }
 		
-		/*
-		stage('Jacoco Code Coverage') {
+				stage('Jacoco Code Coverage') {
 			steps {
 				step([$class: 'JacocoPub', 
 				execPattern: 'target/*.exec',
@@ -45,7 +44,7 @@ pipeline {
 					])
 				}
 		}	
-		*/
+		/*
 		
 		
 		stage('Jacoco') {
@@ -53,7 +52,7 @@ pipeline {
                 sh 'mvn jacoco:report'
             }
         }
-		
+	*/	
 			
 			
 			
