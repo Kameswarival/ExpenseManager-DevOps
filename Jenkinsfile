@@ -15,13 +15,14 @@ pipeline {
         }
 		*/
 		
-			
+/*			
 		stage('PMD') {
             steps {
                 sh 'mvn site'
             }
         }
-		
+	
+*/	
 		
         stage('UnitTest') {
             steps {
