@@ -10,12 +10,7 @@ pipeline {
         stages {
 
 
-        //Run PMD - The static code Analysis tool
-            stage('PMD') {
-                    steps {
-                        sh 'mvn site'
-                    }
-                }
+        
               }
 
       }
